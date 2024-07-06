@@ -1,0 +1,79 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "DynamoDbStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "DynamoDbStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "DynamoDbStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://886330840870/us-east-1",
+      "properties": {
+        "templateFile": "DynamoDbStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::886330840870:role/cdk-hnb659fds-deploy-role-886330840870-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::886330840870:role/cdk-hnb659fds-cfn-exec-role-886330840870-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-886330840870-us-east-1/d80587fdb4453470ef7a861a624c592a49b303e5106f5499b3f44736fd570b5e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "DynamoDbStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::886330840870:role/cdk-hnb659fds-lookup-role-886330840870-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "DynamoDbStack.assets"
+      ],
+      "metadata": {
+        "/DynamoDbStack/Person": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "Person2ADBFF2C"
+            }
+          }
+        ],
+        "/DynamoDbStack/Person/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Person2ADBFF2C"
+          }
+        ],
+        "/DynamoDbStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/DynamoDbStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/DynamoDbStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "DynamoDbStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

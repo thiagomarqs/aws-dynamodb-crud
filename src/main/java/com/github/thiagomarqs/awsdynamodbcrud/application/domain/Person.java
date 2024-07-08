@@ -5,18 +5,15 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 
 import java.time.LocalDate;
-import java.util.Objects;
-import java.util.UUID;
 
 // Yes, I know that domain classes should not contain technology-specific annotations,
 // but this is just a simple practice project :)
 @DynamoDbBean
 public class Person {
 
-    UUID id;
+    String email;
     String fullName;
     LocalDate birthDate;
-    String email;
     String phone;
     Address address;
 
@@ -31,14 +28,15 @@ public class Person {
     }
 
     @DynamoDbPartitionKey
-    public UUID getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    @DynamoDbSortKey
     public String getFullName() {
         return fullName;
     }
@@ -55,14 +53,6 @@ public class Person {
         this.birthDate = birthDate;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -77,31 +67,6 @@ public class Person {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", birthDate=" + birthDate +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address=" + address +
-                '}';
     }
 
 }

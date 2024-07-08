@@ -5,8 +5,6 @@ import com.github.thiagomarqs.awsdynamodbcrud.application.ports.out.DeletePerson
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Component
 public class DeletePersonUseCase implements DeletePersonUseCasePort {
 
@@ -14,8 +12,8 @@ public class DeletePersonUseCase implements DeletePersonUseCasePort {
     DeletePersonRepositoryPort deletePersonRepositoryPort;
 
     @Override
-    public void execute(UUID id) {
-        deletePersonRepositoryPort.delete(id);
+    public void execute(String email, String fullName) {
+        deletePersonRepositoryPort.delete(email, fullName);
     }
 
 }

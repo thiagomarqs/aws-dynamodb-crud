@@ -21,13 +21,19 @@ public class DynamoDbStack extends Stack {
         TableProps tableProps;
 
         Attribute partitionKey = Attribute.builder()
-                .name("id")
+                .name("email")
+                .type(AttributeType.STRING)
+                .build();
+
+        Attribute sortKey = Attribute.builder()
+                .name("fullName")
                 .type(AttributeType.STRING)
                 .build();
 
         tableProps = TableProps.builder()
-                .tableName("Person")
+                .tableName("person")
                 .partitionKey(partitionKey)
+                .sortKey(sortKey)
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .build();
 

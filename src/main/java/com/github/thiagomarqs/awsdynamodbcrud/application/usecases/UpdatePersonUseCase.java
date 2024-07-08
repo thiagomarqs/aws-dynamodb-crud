@@ -13,8 +13,8 @@ public class UpdatePersonUseCase implements UpdatePersonUseCasePort {
     UpdatePersonRepositoryPort updatePersonRepositoryPort;
 
     @Override
-    public Person execute(Person p) {
-        return updatePersonRepositoryPort.update(p.getId(), p);
+    public Person execute(String email, String fullName, Person p) {
+        return updatePersonRepositoryPort.update(email, fullName, p);
     }
 
 }

@@ -5,21 +5,29 @@
    "Properties": {
     "AttributeDefinitions": [
      {
-      "AttributeName": "id",
+      "AttributeName": "email",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "fullName",
       "AttributeType": "S"
      }
     ],
     "KeySchema": [
      {
-      "AttributeName": "id",
+      "AttributeName": "email",
       "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "fullName",
+      "KeyType": "RANGE"
      }
     ],
     "ProvisionedThroughput": {
      "ReadCapacityUnits": 5,
      "WriteCapacityUnits": 5
     },
-    "TableName": "Person"
+    "TableName": "person"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",

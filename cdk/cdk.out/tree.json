@@ -20,21 +20,29 @@
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "email",
+                        "attributeType": "S"
+                      },
+                      {
+                        "attributeName": "fullName",
                         "attributeType": "S"
                       }
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "email",
                         "keyType": "HASH"
+                      },
+                      {
+                        "attributeName": "fullName",
+                        "keyType": "RANGE"
                       }
                     ],
                     "provisionedThroughput": {
                       "readCapacityUnits": 5,
                       "writeCapacityUnits": 5
                     },
-                    "tableName": "Person"
+                    "tableName": "person"
                   }
                 },
                 "constructInfo": {
